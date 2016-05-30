@@ -1,0 +1,10 @@
+ipsec:
+  build: .
+  container_name: ipsec
+  privileged: true
+  volumes:
+    - ./config:/etc/ipsec.d
+  ports:
+    - "0.0.0.0:4500:4500/udp"
+    - "0.0.0.0:500:500/udp"
+    - "0.0.0.0:1701:1701/udp"

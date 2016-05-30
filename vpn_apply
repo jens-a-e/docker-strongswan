@@ -2,6 +2,7 @@
 
 if [ -f "/etc/ipsec.d/l2tp-secrets" ]; then
         cp -f /etc/ipsec.d/l2tp-secrets /etc/ppp/l2tp-secrets
+        cp -f /etc/ipsec.d/l2tp-secrets /etc/ppp/chap-secrets
 fi
 
 if [ -f "/etc/ipsec.d/ipsec.secrets" ]; then

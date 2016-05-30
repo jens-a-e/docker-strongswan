@@ -55,11 +55,14 @@ EOF
 if [ -f "/etc/ipsec.d/l2tp-secrets" ]; then
 	echo "Overwriting standard /etc/ppp/l2tp-secrets with /etc/ipsec.d/l2tp-secrets"
 	cp -f /etc/ipsec.d/l2tp-secrets /etc/ppp/l2tp-secrets
+	cp -f /etc/ipsec.d/l2tp-secrets /etc/ppp/chap-secrets
+	chmod 0600 /etc/ppp/chap-secrets /etc/ppp/l2tp-secrets
 fi
 
 if [ -f "/etc/ipsec.d/ipsec.secrets" ]; then
 	echo "Overwriting standard /etc/ipsec.secrets with /etc/ipsec.d/ipsec.secrets"
 	cp -f /etc/ipsec.d/ipsec.secrets /etc/ipsec.secrets
+	chmod 0600 /etc/ipsec.secrets
 fi
 
 if [ -f "/etc/ipsec.d/ipsec.conf" ]; then
@@ -67,14 +70,19 @@ if [ -f "/etc/ipsec.d/ipsec.conf" ]; then
 	cp -f /etc/ipsec.d/ipsec.conf /etc/ipsec.conf
 fi
 
-if [ -f "/conf/strongswan.conf" ]; then
+if [ -f "/etc/ipsec.d/strongswan.conf" ]; then
 	echo "Overwriting standard /etc/strongswan.conf with /etc/ipsec.d/strongswan.conf"
-	cp -f /conf/strongswan.conf /etc/strongswan.conf
+	cp -f /etc/ipsec.d/strongswan.conf /etc/strongswan.conf
 fi
 
 if [ -f "/etc/ipsec.d/xl2tpd.conf" ]; then
 	echo "Overwriting standard /etc/xl2tpd/xl2tpd.conf with /etc/ipsec.d/xl2tpd.conf"
 	cp -f /etc/ipsec.d/xl2tpd.conf /etc/xl2tpd/xl2tpd.conf
+fi
+
+if [ -f "/etc/ipsec.d/options.xl2tpd" ]; then
+	echo "Overwriting standard /etc/ppp/options.xl2tpd with /etc/ipsec.d/options.xl2tpd"
+	cp -f /etc/ipsec.d/options.xl2tpd /etc/ppp/options.xl2tpd
 fi
 
 echo "Starting XL2TPD process..."
