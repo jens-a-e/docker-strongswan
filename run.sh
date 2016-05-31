@@ -38,6 +38,7 @@ cat > /etc/ppp/l2tp-secrets <<EOF
 
 "$VPN_USER" "*" "$VPN_PASSWORD" "*"
 EOF
+cp /etc/ppp/l2tp-secrets /etc/ppp/chap-secrets
 
 cat > /etc/ipsec.secrets <<EOF
 # This file holds shared secrets or RSA private keys for authentication.

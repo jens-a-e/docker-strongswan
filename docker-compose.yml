@@ -2,7 +2,7 @@ ipsec:
   build: .
   container_name: ipsec
   privileged: true
-  restart: always
+  # restart: always
   volumes:
     - ./config:/etc/ipsec.d
   ports:
