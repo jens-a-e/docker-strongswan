@@ -1,7 +1,7 @@
 FROM gliderlabs/alpine:latest
 MAINTAINER jens@lea.io
 
-RUN apk add --no-cache strongswan xl2tpd
+RUN apk add --no-cache strongswan xl2tpd ppp-daemon
 
 # TODO use the conf dir for conf files...
 # RUN mkdir -p /conf
